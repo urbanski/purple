@@ -1,0 +1,14 @@
+attack_technique: T1234
+display_name: Uname Example
+atomic_tests:
+  - name: UnameExec
+    auto_generated_guid: abcdef
+    description: |
+      Run uname to determine if we are running on linux
+    supported_platforms:
+      - linux
+    executor:
+      command: |
+        uname -a
+      name: bash
+      elevation_required: false
