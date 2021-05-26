@@ -37,20 +37,21 @@ jobs:
       # Install all the dependencies
       - name: Install dependencies
         run: |
+          apt-get update && apt-get install -y build-essential
           go version
           go mod tidy
 
-      # Run build of the application
-      - name: Run build
-        run: make build
-
-      # Run vet & lint on the code
-      - name: Run vet & lint
+      # Run vet
+      - name: vet
         run: make vet
 
-      # Run testing on the code
-      - name: Run testing
-        run: make test
+      # Run tests
+      - name: test
+        run: make test coverage
+
+      # Build it
+      - name: build
+        run: make build
 
 #  # The "deploy" workflow
 #  deploy:

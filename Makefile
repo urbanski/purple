@@ -1,5 +1,5 @@
 
-build: clean vet test
+build:
 	go build -o purplecli .
 	chmod +x purplecli
 
